@@ -6,6 +6,7 @@ var logger = require('morgan');
 //importar el database.js
 var database = require('./config/database')//Nombre de archivo sin extensiones
 var auth = require("./auth/main_auth")
+var cors = require("cors")
 
 
 var empleadosRouter = require('./routes/empleados.router');
@@ -21,6 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 
 //MongoConnection
 database.mongoConnect();

@@ -23,18 +23,18 @@ const Products = () => {
             <Card
               source={AudifonosLogitechG733}
               name={"Audifonos Logitech G733"}
-              price={12000}
+              price={15000}
             />
           </Col>
           <Col className="cont-product">
             <Card
               source={MouseGamerM601}
               name={"Mouse Gamer M601"}
-              price={12000}
+              price={20000}
             />
           </Col>
           <Col className="cont-product">
-            <Card source={MonitorGamer} name={"Monitor Gamer"} price={12000} />
+            <Card source={MonitorGamer} name={"Monitor Gamer"} price={18000} />
           </Col>
         </Row>
         <Row>

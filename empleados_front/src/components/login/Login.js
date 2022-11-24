@@ -4,17 +4,31 @@ import Modal from "../modal/modal";
 //import useModal from '../hooks/useModal';
 import Row from 'react-bootstrap/Row';
 import './login.css'
+import app from "../../app.json"
+import axios from 'axios';
+
+const {APIHOST} = app;
 
 const Login = ({isOpenModal,closeModal}) => {
     
     const ingreso = (e) =>{
       e.preventDefault();
-      console.log("Ingresando")
+      var {usuario,password} = document.forms[0];
+      axios.post(`${APIHOST}usuarios/login`, {
+        usuario: usuario.value,
+        pass: password.value
+      })
+      .then((response) => {
+        alert(response)
+        console.log(response)
+      })
+      .catch((err) =>{
+        alert(err)
+        console.log(err);
+      })
     }
 
     const manejadorChange = async (e) =>{
-      var {usuario,password} = document.forms[0];
-      console.log(usuario.value +  " - " + password.value)
     }
 
 
