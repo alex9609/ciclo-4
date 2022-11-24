@@ -1,0 +1,22 @@
+.audifonos{
+    max-height: 250px;
+    max-width: 250px;
+    padding: 10px;
+}
+
+.laptop{
+    max-height: 265px;
+    max-width: 265px;
+    padding: 20px;
+}
+
+.ipad{
+    max-height: 180px;
+    max-width: 160px;
+}
+
+
+.contenedor{
+    min-height: 200px;
+    max-height: 200px;
+}
