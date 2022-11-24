@@ -28,7 +28,7 @@ const Carrousel = () => {
                 />
               </Col>
               <Col>
-                <h3>Audifonos</h3>
+                <h3 className="title-product">Audifonos Logitech G733</h3>
               </Col>
             </Row>
           </Carousel.Item>
@@ -42,7 +42,7 @@ const Carrousel = () => {
                 />
               </Col>
               <Col>
-                <h3>Audifonos</h3>
+                <h3 className="title-product">Laptop Gamer MSI GF65</h3>
               </Col>
             </Row>
           </Carousel.Item>
@@ -56,7 +56,7 @@ const Carrousel = () => {
                 />
               </Col>
               <Col>
-                <h3>Audifonos</h3>
+                <h3 className="title-product">Ipad Pro 2° Generación</h3>
               </Col>
             </Row>
           </Carousel.Item>
