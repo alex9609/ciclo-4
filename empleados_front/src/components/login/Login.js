@@ -6,26 +6,51 @@ import Row from 'react-bootstrap/Row';
 import './login.css'
 import app from "../../app.json"
 import axios from 'axios';
+import {isNull} from 'util'
+import Cookies from "universal-cookie";
+import { calculaExtraccionSesion } from '../helper/helper';
+import Loading from '../loading/Loading';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 const {APIHOST} = app;
+const cookies = new Cookies();
 
 const Login = ({isOpenModal,closeModal}) => {
+
+    let history = useHistory();
+ 
+    const [loading, setLoading] = useState(false);
     
-    const ingreso = (e) =>{
+    async function  ingreso(e){
       e.preventDefault();
       var {usuario,password} = document.forms[0];
-      axios.post(`${APIHOST}usuarios/login`, {
+
+      setLoading(true)
+      await axios.post(`${APIHOST}usuarios/login`, {
         usuario: usuario.value,
         pass: password.value
       })
       .then((response) => {
-        alert(response)
-        console.log(response)
+        if(isNull(response.data.token)){
+          alert("Usuario y/o contraseña invalido")
+        }else{
+          cookies.set('_s', response.data.token,{
+            path: '/',
+            expires:
+            calculaExtraccionSesion(),
+          });
+          history.push(window.open("/empleados"));
+        }
       })
       .catch((err) =>{
         alert(err)
         console.log(err);
       })
+      setLoading(false)
+      closeModal();
+
+
     }
 
     const manejadorChange = async (e) =>{
@@ -72,6 +97,7 @@ const Login = ({isOpenModal,closeModal}) => {
             </Row>
           </form>
         </Modal>
+        <Loading show={loading}/>
       </Container>    
   )
 }
