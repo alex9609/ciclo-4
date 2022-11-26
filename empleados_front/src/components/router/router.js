@@ -4,7 +4,7 @@ import LoginHome from '../LoginHome/LoginHome';
 import Inicio from '../Index/Index';
 import { FaRegSadTear } from "react-icons/fa";
 import PrivateRoute from '../auth/privaterouter';
-import EmpleadosBuscar from '../Empleados/empleados.buscar'
+import EmpleadosBuscar from '../empleados/inicioe'
 
 
 
